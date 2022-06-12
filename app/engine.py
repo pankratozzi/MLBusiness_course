@@ -168,7 +168,7 @@ class CountLDA(BaseEstimator, TransformerMixin):
 class Predictor:
     def __init__(self, path=''):
         self.bert = BertModel()
-        self.bert.load_state_dict(torch.load(PATH + 'bert_model.pth', map_location=torch.device(device)))
+        self.bert.load_state_dict(torch.load(path + 'bert_model.pth', map_location=torch.device(device)))
         self.cat = CatBoostClassifier()
         self.cat.load_model(path + 'cat_model')
         self.lgbm = joblib.load(path + '/lda_lgbm.pkl')
