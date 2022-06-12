@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Fake news classifier</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h2>Enter news text content:</h2>
+    {% from "_helper.html" import render_field %}
+    <form method=post action="/results">
+      <dl>
+        {{ render_field(form.text_check, cols='100', rows='40') }}
+      </dl>
+      <div>
+        <input type="submit" value="Submit news" name="submit_btn">
+      </div>
+    </form>
+</body>
+</html>
